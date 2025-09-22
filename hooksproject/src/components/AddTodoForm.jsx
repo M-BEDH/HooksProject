@@ -1,19 +1,20 @@
 import { useState } from 'react'
 
-const AddTodoForm = (addNewTodo) => {
+const AddTodoForm = ({addNewTodo}) => {
+
 
     const [addTodo, setAddTodo] = useState('')
-    addNewTodo(addTodo)
-
+    
+    
     const handleToto = (e) => {
         e.preventDefault()
-        addNewTodo(setAddTodo(value))
+        addNewTodo(addTodo)
 
-        setAddTodo
+        setAddTodo('')
     }
 
     return(
-        <form className='mt-4'>
+        <form className='mt-4' onSubmit={handleToto}>
         <div className='card card-body'>
         <div className='form-group'>
             <label>Ajouter Todo</label>

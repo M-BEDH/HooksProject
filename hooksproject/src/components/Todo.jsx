@@ -5,6 +5,10 @@ import AddTodoForm  from './AddTodoForm'
 
 const Todo = () => {
 
+    const [warning, setWarning] = useState(false);
+    const warningMsg = warning && <div className='alert alert-danger' role='alert'>Veuillez indiquer un Todo</div>
+
+
     const[todos, setTodos] = useState([
         {id: 1, todo: 'Acheter du beurre'},
         {id: 2, todo: 'Prendre un pain de campagne'},
@@ -17,19 +21,27 @@ const Todo = () => {
         )
     })
 
-    const addNewTodo = (newTodo) => {
+        const addNewTodo = (newTodo) => {
         const newid = uuidv4
 
+           if(newTodo !== '') {
+                warning && setWarning(false)
+    
         setTodos([ ...todos, {
             id: newid ,
             todo: newTodo
         }])
+
+        console.log(newid)
+
+    } else {
+        setWarning(true)
     }
-
-
+}
 
 return (
     <div>
+     {warningMsg}
       <h1> Il y a {todos.length} To-do</h1>
 
         <ul className='list-group'>
