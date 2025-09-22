@@ -1,5 +1,7 @@
 import './App.css'
+import ClassCount from './components/ClassCount'
 import Todo from './components/Todo'
+import FunctionCount from './components/FunctionCount'
 
 function App() {
 
@@ -7,6 +9,8 @@ function App() {
     <div className='container'>
 
       <Todo />
+      <ClassCount />
+      <FunctionCount />
 
     </div>
   )
