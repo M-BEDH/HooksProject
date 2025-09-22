@@ -13,9 +13,9 @@ class ClassState extends Component {
     addOne = () => {
         this.setState(prevState => {
             return {
-                counter: prevState.counter +1
+                counter: prevState.counter + 1
             }
-         })
+        })
     }
 
     render() {
@@ -27,4 +27,4 @@ class ClassState extends Component {
         )
     }
 }
-    export default ClassState;
+export default ClassState;

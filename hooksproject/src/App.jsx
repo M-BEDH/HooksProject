@@ -1,15 +1,15 @@
-
 import './App.css'
 import Todo from './components/Todo'
 
 function App() {
 
-return (
-  <div className='container'>
-   
-    <Todo />
+  return (
+    <div className='container'>
 
-  </div>
-)}
- 
+      <Todo />
+
+    </div>
+  )
+}
+
 export default App
