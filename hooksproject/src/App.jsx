@@ -1,19 +1,26 @@
 import './App.css'
-import ClassCount from './components/ClassCount'
-import Todo from './components/Todo'
-import FunctionCount from './components/FunctionCount'
+import Profile from './components/Profile'
+import { Component } from 'react'
 
-function App() {
+class App extends Component() {
 
-  return (
-    <div className='container'>
+  state = {
+    user: {
+      name: 'Lisa',
+      age: 8
+    }
+  }
 
-      {/* <Todo /> */}
-      {/* <ClassCount /> */}
-      <FunctionCount />
+  render() {
 
-    </div>
-  )
+    return (
+      <div>
+
+        <Profile />
+
+      </div>
+    )
+  }
 }
 
 export default App

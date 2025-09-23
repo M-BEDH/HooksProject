@@ -5,13 +5,14 @@ import FunctionState from './components/FunctionState'
 
 function App() {
 
-return (
-  <div>
-    <h1>UseState Hooks</h1>
-    <ClassState />
-    <FunctionState />
+  return (
+    <div>
+      <h1>UseState Hooks</h1>
+      <ClassState />
+      <FunctionState />
 
-  </div>
-)}
- 
+    </div>
+  )
+}
+
 export default App
