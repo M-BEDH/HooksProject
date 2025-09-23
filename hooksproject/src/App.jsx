@@ -1,26 +1,29 @@
+import { UserContext, ColorContext } from './components/MyContext'
+import { useState } from 'react'
 import './App.css'
 import Profile from './components/Profile'
-import { Component } from 'react'
 
-class App extends Component() {
+function App() {
 
-  state = {
-    user: {
-      name: 'Lisa',
-      age: 8
-    }
-  }
+  const [user, setUser] = useState({
 
-  render() {
+    name: 'Lisa',
+    age: 8
+  })
 
-    return (
-      <div>
-
+  return (
+    <div className='container'>
+  <h1>Hook Context</h1>
+  
+      <UserContext.Provider value={user}>
+      <ColorContext.Provider value={'blue'}>
         <Profile />
+        </ColorContext.Provider>
+      </UserContext.Provider>
 
-      </div>
-    )
-  }
+    </div>
+  );
 }
+
 
 export default App
