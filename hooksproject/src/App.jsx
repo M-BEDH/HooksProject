@@ -13,11 +13,11 @@ function App() {
 
   return (
     <div className='container'>
-  <h1>Hook Context</h1>
-  
+      <h1>Hook Context</h1>
+
       <UserContext.Provider value={user}>
-      <ColorContext.Provider value={'blue'}>
-        <Profile />
+        <ColorContext.Provider value={'blue'}>
+          <Profile />
         </ColorContext.Provider>
       </UserContext.Provider>
 

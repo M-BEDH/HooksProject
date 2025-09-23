@@ -13,10 +13,10 @@ const FunctionCount = () => {
     //  })
 
     useEffect(() => {
-           console.log('Mise à jour du titre via useEffect')
-            document.title = `FunctionCount cliqué ${count} fois`
-        }, [count])
-   
+        console.log('Mise à jour du titre via useEffect')
+        document.title = `FunctionCount cliqué ${count} fois`
+    }, [count])
+
 
     return (
         <div>
