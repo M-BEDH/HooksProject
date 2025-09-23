@@ -8,8 +8,8 @@ function App() {
   return (
     <div className='container'>
 
-      <Todo />
-      <ClassCount />
+      {/* <Todo /> */}
+      {/* <ClassCount /> */}
       <FunctionCount />
 
     </div>
