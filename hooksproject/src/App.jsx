@@ -17,28 +17,41 @@ function App() {
     increment: 20,
   });
 
-const incrementCountOne = useCallback((val) => {
-  countOne.value < 100 && setCountOne({...countOne, value: countOne.value + val });
-}, [countOne]);
+
+      // version moins optimale car on dépend de countOne dans le tableau de dépendance et on passe un argument val
+// const incrementCountOne = useCallback((val) => {
+//   countOne.value < 100 && setCountOne({...countOne, value: countOne.value + val });
+// }, [countOne]);
 
 
-  // const incrementCountOne = useCallback(() => {
-  //   setCountOne((state) =>
-  //     state.value < 100 ? { ...state, value: state.value + state.increment } : state
-  //   );
-  // }, []);
 
 
-   const incrementCountTwo = useCallback((val) => {
-  countTwo.value < 100 && setCountTwo({...countTwo, value: countTwo.value + val });
-}, [countTwo]);
+
+// version plus optimisé car on utilise la fonction de mise à jour avec le state précédent
+  const incrementCountOne = useCallback(() => {
+    setCountOne((state) =>
+      state.value < 100 ? { ...state, value: state.value + state.increment } : state
+    );
+  }, []);
 
 
-  // const incrementCountTwo = useCallback(() => {
-  //   setCountTwo((state) =>
-  //     state.value < 100 ? { ...state, value: state.value + state.increment } : state
-  //   );
-  // }, []);
+
+
+      // version moins optimale car on dépend de countTwo dans le tableau de dépendance et on passe un argument val
+//    const incrementCountTwo = useCallback((val) => {
+//   countTwo.value < 100 && setCountTwo({...countTwo, value: countTwo.value + val });
+// }, [countTwo]);
+
+
+
+
+
+// version plus optimisé car on utilise la fonction de mise à jour avec le state précédent
+  const incrementCountTwo = useCallback(() => {
+    setCountTwo((state) =>
+      state.value < 100 ? { ...state, value: state.value + state.increment } : state
+    );
+  }, []);
 
 
 
