@@ -1,8 +1,10 @@
+import Count from "./components/Count";
+
 function App() {
 
     return (
-        <div className="text-center">
-           <h1>test</h1> 
+        <div className="container text-center mt-5">
+           <Count />
         </div>
     )
 }
