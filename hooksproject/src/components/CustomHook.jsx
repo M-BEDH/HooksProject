@@ -1,11 +1,27 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
+import useUpdateDocTitle from '../hooks/UpdateDocTitle'
 
-function CustomHook() {
+function ClickSayHello() {
+
+  const [text, setText] = useState('')
+  const [isTrue, setIsTrue] = useState(true)
+
+  useEffect(() => {
+      if(isTrue) {
+        setText("Bonjour")
+      } else {
+        setText("Bonsoir")
+      }
+
+  }, [isTrue])
+
+  useUpdateDocTitle(text)
+
   return (
-    <div>
-      
+    <div style={{textAlign: "center", margin: "1rem"}}>
+      <button  onClick={() => setIsTrue("Hello World")}>Cliquez</button>
     </div>
   )
 }
 
-export default CustomHook
+export default ClickSayHello
