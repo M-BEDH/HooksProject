@@ -1,20 +1,28 @@
+import { UserContext, ColorContext } from './components/MyContext'
+import { useState } from 'react'
 import './App.css'
-import ClassCount from './components/ClassCount'
-import Todo from './components/Todo'
-import FunctionCount from './components/FunctionCount'
-
+import Profile from './components/Profile'
 
 function App() {
 
+  const [user, setUser] = useState({
+
+    name: 'Lisa',
+    age: 8
+  })
+
   return (
-    <div>
-      <Todo />
-      <ClassCount />
-      <FunctionCount />
+    <div className='container'>
+      <h1>Hook Context</h1>
+
+      <UserContext.Provider value={user}>
+        <ColorContext.Provider value={'blue'}>
+          <Profile />
+        </ColorContext.Provider>
+      </UserContext.Provider>
 
     </div>
-
-  )
+  );
 }
 
 
