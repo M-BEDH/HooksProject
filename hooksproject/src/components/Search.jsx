@@ -1,13 +1,13 @@
 
-function Search({searchStr}) {
+const Search = ({searchStr, searchHandler}) => {
   return (
-    <div>
-      <input 
+    <div style={{textAlign: "center", margin: "1rem"}}>
+      <input
       type='text'
       placeholder='Chercher ...'
       value={searchStr}
-      onChange={searchhandler}
-      />
+       onChange={searchHandler}
+     />
     </div>
   )
 }

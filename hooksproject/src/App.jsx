@@ -1,11 +1,11 @@
 import ClickSayHello from "./components/CustomHook"
-import MyContacts from "./components/MyContact"
+import MyContacts from "./components/MyContacts"
 
 
 function App() {
   return (
-    <div>
-      <h1 style={{textAlign: "center", margin: "1rem"}}>Custom Hook</h1>
+    <div style={{textAlign: "center", margin: "1rem"}}>
+      <h1>Custom Hook</h1>
 
       <ClickSayHello />
       <MyContacts />

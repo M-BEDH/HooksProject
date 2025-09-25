@@ -19,7 +19,7 @@ function ClickSayHello() {
 
   return (
     <div style={{textAlign: "center", margin: "1rem"}}>
-      <button  onClick={() => setIsTrue("Hello World")}>Cliquez</button>
+      <button  onClick={() => setIsTrue(!isTrue)}>Cliquez</button>
     </div>
   )
 }
