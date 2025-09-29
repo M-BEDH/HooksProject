@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #fcb0453b;
+  background-color: #fcd0933b;
 }
 
 li {
@@ -61,7 +61,7 @@ p {
   text-align: center;
   background-color: #d18118 !important;
   color: #ffffff;
-  border: 1px solid grey;
+  border: 1px solid #ddd7d786;
   padding: 12px;
 }
 

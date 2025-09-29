@@ -4,7 +4,6 @@ import Search from "./Search"
 import TableUsers from "./TableUsers"
 
 
-
 const MyContacts = () => {
 
     const [users, setUsers] = useState([])
@@ -12,7 +11,7 @@ const MyContacts = () => {
     const [search, setSearch] = useState('')
     const [resultSearch, setResultSearch] = useState([])
 
-    console.log(users)
+    // console.log(users)
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -25,22 +24,43 @@ const MyContacts = () => {
     }, [])
     // console.log(search)
 
-    useUpdateDocTitle(search)
+    useUpdateDocTitle(search);
+
+
+    const filterUsers = () => {
+        const foundUsers = users.filter(user => {
+            // console.log(Object.values(user))
+            return Object.values(user)
+                .join(' ')
+                .toLowerCase()
+                .includes(search.toLowerCase())
+        })
+
+        setResultSearch(foundUsers)
+    }
+
+    useEffect(() => {
+        if (search !== '') {
+            //filter
+            filterUsers();
+        } else {
+            setResultSearch([])
+        }
+    }, [search]);
+
 
     const handleChange = e => {
         setSearch(e.target.value)
     }
 
+
     const msgDisplay = (msg, color) => {
         return (
-            <p stytle={{ textAlign: 'center', color: color }}>
+            <span style={{ textAlign: 'center', color: color }}>
                 {msg}
-            </p>
+            </span>
         )
     }
-
-
-
 
 
     return (
@@ -55,19 +75,13 @@ const MyContacts = () => {
             }
 
             {
-               // resultSearch.length === 0 && search !== '' ? msgDisplay('Pas de résultats', 'red')
-              //   :
-                    /* search === '' ? msgDisplay('Veuillez effectuer une autre recherche', 'green') */
-
-//               search === '' ? null 
-
-           //           :
-                        < TableUsers
-                            dataArray={users}
+                resultSearch.length === 0 && search !== ''
+                    ? msgDisplay('Pas de résultats', 'red')
+                    : search === '' ? msgDisplay('Veuillez effectuer une recherche', 'green')
+                        : < TableUsers
+                            dataArray={resultSearch}
                         />
             }
-
-
 
         </div>
     )
