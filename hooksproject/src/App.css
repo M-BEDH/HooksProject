@@ -43,7 +43,7 @@ p {
 }
 
 .user p{
-  background-color: #fcb04586;
+  background-color: #fcb045b9;
   width: 20vw;
   margin: auto;
   top: 15rem;
@@ -59,8 +59,12 @@ p {
 
 .table th {
   text-align: center;
-  background-color: #57046b !important;
+  background-color: #d18118 !important;
   color: #ffffff;
   border: 1px solid grey;
   padding: 12px;
+}
+
+.table td {
+  border: 1px solid #ddd7d7
 }
