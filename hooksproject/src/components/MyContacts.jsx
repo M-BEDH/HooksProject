@@ -62,6 +62,19 @@ const MyContacts = () => {
         )
     }
 
+    let content;
+
+    if (isLoading) {
+        content = msgDisplay('Veuillez Patienter ...', 'red');
+    } else if (search === '') {
+        content = msgDisplay('Veuillez effectuer une recherche', 'green');
+    } else if (resultSearch.length === 0) {
+        content = msgDisplay('Pas de résultats', 'red');
+    } else {
+        content = <TableUsers dataArray={resultSearch} />;
+    }
+
+
 
     return (
         <div>
@@ -74,14 +87,7 @@ const MyContacts = () => {
                 )
             }
 
-            {
-                resultSearch.length === 0 && search !== ''
-                    ? msgDisplay('Pas de résultats', 'red')
-                    : search === '' ? msgDisplay('Veuillez effectuer une recherche', 'green')
-                        : < TableUsers
-                            dataArray={resultSearch}
-                        />
-            }
+            {content} 
 
         </div>
     )
