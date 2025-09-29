@@ -64,9 +64,7 @@ const MyContacts = () => {
 
     let content;
 
-    if (isLoading) {
-        content = msgDisplay('Veuillez Patienter ...', 'red');
-    } else if (search === '') {
+   if (search === '') {
         content = msgDisplay('Veuillez effectuer une recherche', 'green');
     } else if (resultSearch.length === 0) {
         content = msgDisplay('Pas de résultats', 'red');
