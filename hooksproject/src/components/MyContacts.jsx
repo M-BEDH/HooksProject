@@ -1,31 +1,78 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useUpdateDocTitle from '../hooks/UpdateDocTitle'
 import Search from "./Search"
+import TableUsers from "./TableUsers"
 
-const MyContacts = (text) => {
+
+
+const MyContacts = () => {
 
     const [users, setUsers] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const [search, setSearch] = useState('')
+    const [resultSearch, setResultSearch] = useState([])
 
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => console.log(json))
+    console.log(users)
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => {
+                setUsers(json)
+                setIsLoading(false)
+            })
+            .catch(error => console.log(error.message))
+    }, [])
     // console.log(search)
 
-    useUpdateDocTitle(text)
+    useUpdateDocTitle(search)
 
     const handleChange = e => {
         setSearch(e.target.value)
     }
 
+    const msgDisplay = (msg, color) => {
+        return (
+            <p stytle={{ textAlign: 'center', color: color }}>
+                {msg}
+            </p>
+        )
+    }
+
+
+
+
+
     return (
-      
-            <Search
-                searchStr={search}
-                searchHandler={handleChange}
-            />
-      
+        <div>
+            {
+                isLoading ? msgDisplay('Veuillez Patienter ...', 'red') : (
+                    < Search
+                        searchStr={search}
+                        searchHandler={handleChange}
+                    />
+                )
+            }
+
+            {
+               // resultSearch.length === 0 && search !== '' ? msgDisplay('Pas de résultats', 'red')
+              //   :
+                    /* search === '' ? msgDisplay('Veuillez effectuer une autre recherche', 'green') */
+
+//               search === '' ? null 
+
+           //           :
+                        < TableUsers
+                            dataArray={users}
+                        />
+            }
+
+
+
+        </div>
     )
+
+
 }
 
 export default MyContacts
